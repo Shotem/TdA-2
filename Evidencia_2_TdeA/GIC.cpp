@@ -12,7 +12,7 @@ int GIC::E00(std::string str, int p){
 	if (r1 != -1) {
 		r2 = E01(str, p + r1);
 		if (r2 != -1) {
-			return p + r2;
+			return 1 + r2;
 		} else {
 			return -1;
 		}
@@ -27,7 +27,7 @@ int GIC::E01(std::string str, int p){
 	if (r1 != -1) {
 		r2 = E02(str, p + r1);
 		if (r2 != -1) {
-			return p + r2;
+			return 1 + r2;
 		} else {
 			return -1;
 		}
@@ -42,7 +42,7 @@ int GIC::E02(std::string str, int p){
 	if (r1 != -1) {
 		r2 = E03(str, p + r1);
 		if (r2 != -1) {
-			return p + r2;
+			return 1 + r2;
 		} else {
 			return -1;
 		}
@@ -57,7 +57,7 @@ int GIC::E03(std::string str, int p){
 	if (r1 != -1) {
 		r2 = E04(str, p + r1);
 		if (r2 != -1) {
-			return p + r2;
+			return 1 + r2;
 		} else {
 			return -1;
 		}
@@ -72,7 +72,7 @@ int GIC::E04(std::string str, int p){
 	if (r1 != -1) {
 		r2 = E05(str, p + r1);
 		if (r2 != -1) {
-			return p + r2;
+			return 1 + r2;
 		} else {
 			return -1;
 		}
@@ -87,7 +87,7 @@ int GIC::E05(std::string str, int p){
 	if (r1 != -1) {
 		r2 = E09(str, p + r1);
 		if (r2 != -1) {
-			return p + r2;
+			return 1 + r2;
 		} else {
 			return -1;
 		}
@@ -126,7 +126,7 @@ int GIC::E10(std::string str, int p) {
 		if (r1 != -1) {
 			r2 = E11(str, p + r1);
 			if (r2 != -1) {
-				return p + r2;
+				return 1 + r2;
 			} else {
 				return -1;
 			}
@@ -142,7 +142,7 @@ int GIC::E11(std::string str, int p){
 	if (r1 != -1) {
 		r2 = E12(str, p + r1);
 		if (r2 != -1) {
-			return p + r2;
+			return 1 + r2;
 		} else {
 			return -1;
 		}
@@ -157,7 +157,7 @@ int GIC::E12(std::string str, int p){
 	if (r1 != -1) {
 		r2 = E08(str, p + r1);
 		if (r2 != -1) {
-			return p + r2;
+			return 1 + r2;
 		} else {
 			return -1;
 		}

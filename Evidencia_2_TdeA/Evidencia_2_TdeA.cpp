@@ -10,7 +10,7 @@ int main()
     GIC g1 = GIC();
 
 
-    std::cout << (g1.compare("iwwiwwwwjj")? "True":"False") << std::endl;
+    std::cout << (g1.compare("iwwwiwwwwwwjj")? "True":"False") << std::endl;
 
     std::cin.get();
     
