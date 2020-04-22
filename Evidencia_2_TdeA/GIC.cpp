@@ -2,176 +2,128 @@
 #include "GIC.h"
 
 bool GIC::compare(std::string str) {
-	return E00(str, 0) != -1;
+	return E00(str);
 }
 
-int GIC::E00(std::string str, int p){
-	std::cout << "E00 " << p << std::endl;
-
-	int r1 = E06(str, p), r2 = 0;
-	if (r1 != -1) {
-		r2 = E01(str, p + r1);
-		if (r2 != -1) {
-			return 1 + r2;
-		} else {
-			return -1;
-		}
+bool GIC::E00(std::string &str) {
+	if ( E06(str) && E01(str) ) {
+		return true;
 	} else {
-		return -1;
+		return false;
 	}
 }
-int GIC::E01(std::string str, int p){
-	std::cout << "E01 " << p << std::endl;
 
-	int r1 = E07(str, p), r2 = 0;
-	if (r1 != -1) {
-		r2 = E02(str, p + r1);
-		if (r2 != -1) {
-			return 1 + r2;
-		} else {
-			return -1;
-		}
+bool GIC::E01(std::string& str) {
+	if (E07(str) && E02(str)) {
+		return true;
 	} else {
-		return -1;
+		return false;
 	}
 }
-int GIC::E02(std::string str, int p){
-	std::cout << "E02 " << p << std::endl;
 
-	int r1 = E10(str, p), r2 = 0;
-	if (r1 != -1) {
-		r2 = E03(str, p + r1);
-		if (r2 != -1) {
-			return 1 + r2;
-		} else {
-			return -1;
-		}
+bool GIC::E02(std::string& str) {
+	if (E10(str) && E03(str)) {
+		return true;
 	} else {
-		return -1;
+		return false;
 	}
 }
-int GIC::E03(std::string str, int p){
-	std::cout << "E03 " << p << std::endl;
 
-	int r1 = E08(str, p), r2 = 0;
-	if (r1 != -1) {
-		r2 = E04(str, p + r1);
-		if (r2 != -1) {
-			return 1 + r2;
-		} else {
-			return -1;
-		}
+bool GIC::E03(std::string& str) {
+	if (E08(str) && E04(str)) {
+		return true;
 	} else {
-		return -1;
+		return false;
 	}
 }
-int GIC::E04(std::string str, int p){
-	std::cout << "E04 " << p << std::endl;
 
-	int r1 = E08(str, p), r2 = 0;
-	if (r1 != -1) {
-		r2 = E05(str, p + r1);
-		if (r2 != -1) {
-			return 1 + r2;
-		} else {
-			return -1;
-		}
+bool GIC::E04(std::string& str) {
+	if (E08(str) && E05(str)) {
+		return true;
 	} else {
-		return -1;
+		return false;
 	}
 }
-int GIC::E05(std::string str, int p){
-	std::cout << "E05 " << p << std::endl;
 
-	int r1 = E09(str, p), r2 = 0;
-	if (r1 != -1) {
-		r2 = E09(str, p + r1);
-		if (r2 != -1) {
-			return 1 + r2;
-		} else {
-			return -1;
-		}
+bool GIC::E05(std::string& str) {
+	if (E09(str) && E09(str)) {
+		return true;
 	} else {
-		return -1;
+		return false;
 	}
 }
-int GIC::E06(std::string str, int p){
-	std::cout << "E06 " << p << std::endl;
 
-	return (subString(str, this->i, p) ? this->i.length() : -1);
-}
-int GIC::E07(std::string str, int p){
-	std::cout << "E07 " << p << std::endl;
 
-	return (subString(str, this->w, p) ? this->w.length() : -1);
-}
-int GIC::E08(std::string str, int p){
-	std::cout << "E08 " << p << std::endl;
 
-	return (subString(str, this->wi, p) ? this->wi.length() : -1);
-}
-int GIC::E09(std::string str, int p){
-	std::cout << "E09 " << p << std::endl;
+bool GIC::E06(std::string &str){
+	if( subString( str, i ,0 ) ) {
+		str.erase( 0, i.length() );
+		return true;
+	} else { 
 
-	return (subString(str, this->j, p) ? this->j.length() : -1);
-}
-int GIC::E10(std::string str, int p) {
-	std::cout << "E10 " << p << std::endl;
-
-	int r1 = 0, r2 = 0;
-	if ( subString(str, i, p) ) {
-		return i.length();
-	} else {
-		r1 = E07(str, p);
-		if (r1 != -1) {
-			r2 = E11(str, p + r1);
-			if (r2 != -1) {
-				return 1 + r2;
-			} else {
-				return -1;
-			}
-		} else {
-			return -1;
-		}
+		return false;
 	}
 }
-int GIC::E11(std::string str, int p){
-	std::cout << "E11 " << p << std::endl;
-
-	int r1 = E10(str, p), r2 = 0;
-	if (r1 != -1) {
-		r2 = E12(str, p + r1);
-		if (r2 != -1) {
-			return 1 + r2;
-		} else {
-			return -1;
-		}
-	} else {
-		return -1;
+bool GIC::E07(std::string &str){
+	if( subString( str,w,0 ) ) {
+		str.erase( 0, w.length() );
+		return true;
+	} else { 
+		return false;
 	}
 }
-int GIC::E12(std::string str, int p){
-	std::cout << "E12 " << p << std::endl;
-
-	int r1 = E08(str, p), r2 = 0;
-	if (r1 != -1) {
-		r2 = E08(str, p + r1);
-		if (r2 != -1) {
-			return 1 + r2;
-		} else {
-			return -1;
-		}
-	} else {
-		return -1;
+bool GIC::E08(std::string &str){
+	if( subString( str,wi,0 ) ) {
+		str.erase( 0, wi.length() );
+		return true;
+	} else { 
+		return false;
 	}
 }
+bool GIC::E09(std::string &str){
+	if( subString( str, j,0 ) ) {
+		str.erase( 0, j.length() );
+		return true;
+	} else { 
+		return false;
+	}
+}
+
+bool GIC::E10(std::string& str) {
+	if (subString(str, i, 0)) {
+		str.erase(0, i.length());
+		return true;
+	} else if (E07(str) && E11(str)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool GIC::E11(std::string& str) {
+	if (E10(str) && E12(str)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool GIC::E12(std::string& str) {
+	if (E08(str) && E08(str)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
 
 bool GIC::subString(std::string str, std::string a, int index) {
 	if (str.length() < index + a.length()) {
 		return false;
 	} else {
 
-		for (int i = 0; i < a.length(); i++) {
+		for (unsigned int i = 0; i < a.length(); i++) {
 			if (a[i] != str[index + i]) {
 				return false;
 			}

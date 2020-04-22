@@ -40,7 +40,24 @@ struct GIC
 	bool compare(std::string);
 	bool subString(std::string a, std::string str, int index);
 
-	int E00(std::string, int);
+	bool E00(std::string&);
+	bool E01(std::string&);
+	bool E02(std::string&);
+	bool E03(std::string&);
+	bool E04(std::string&);
+	bool E05(std::string&);
+
+	bool E06(std::string&);
+	bool E07(std::string&);
+	bool E08(std::string&);
+	bool E09(std::string&);
+
+	bool E10(std::string&);
+	bool E11(std::string&);
+	bool E12(std::string&);
+	bool E13(std::string&);
+
+	/*int E00(std::string, int);
 	int E01(std::string, int);
 	int E02(std::string, int);
 	int E03(std::string, int);
@@ -52,7 +69,7 @@ struct GIC
 	int E09(std::string, int);
 	int E10(std::string, int);
 	int E11(std::string, int);
-	int E12(std::string, int);
+	int E12(std::string, int);*/
 
 };
 
