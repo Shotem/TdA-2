@@ -10,12 +10,14 @@ struct GIC
 	std::string j;
 	std::string w;
 	std::string wi;
+	bool debug;
 
 	GIC() {
 		this->i = "i";
 		this->j = "j";
 		this->w = "w";
 		this->wi = w;
+		debug = false;
 		std::reverse(this->wi.begin(), this->wi.end());
 
 		/*std::cout << "i:   " << i  << std::endl;
