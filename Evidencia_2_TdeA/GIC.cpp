@@ -1,28 +1,20 @@
 
 #include "GIC.h"
 
-bool GIC::compare(std::string str) {
-	if (debug) {
-		std::cout << "Iniciando" << std::endl;
-	}
-	return E00(str);
-}
-
 bool GIC::E00(std::string &str) {
 	if (debug) {
-		std::cout << "Entrado al estado   E0 con la cadena \"" << str << "\"" << std::endl;
+		std::cout << "Entrado al estado   E00 con la cadena \"" << str << "\"" << std::endl;
 	}
 
 	if ( E06(str) && E01(str) ) {
 		if (debug) {
-			std::cout << "Saliendo del estado E00 con la cadena \"" << str << "\"" << std::endl;
+			std::cout << "Saliendo del estado E00 con la cadena \"" << str << "\"\n" << std::endl;
 		}
 		return true;
 	} else {
 		return false;
 	}
 }
-
 bool GIC::E01(std::string& str) {
 	if (debug) {
 		std::cout << "Entrado al estado   E01 con la cadena \"" << str << "\"" << std::endl;
@@ -37,7 +29,6 @@ bool GIC::E01(std::string& str) {
 		return false;
 	}
 }
-
 bool GIC::E02(std::string& str) {
 	if (debug) {
 		std::cout << "Entrado al estado   E02 con la cadena \"" << str << "\"" << std::endl;
@@ -52,7 +43,6 @@ bool GIC::E02(std::string& str) {
 		return false;
 	}
 }
-
 bool GIC::E03(std::string& str) {
 	if (debug) {
 		std::cout << "Entrado al estado   E03 con la cadena \"" << str << "\"" << std::endl;
@@ -67,7 +57,6 @@ bool GIC::E03(std::string& str) {
 		return false;
 	}
 }
-
 bool GIC::E04(std::string& str) {
 	if (debug) {
 		std::cout << "Entrado al estado   E04 con la cadena \"" << str << "\"" << std::endl;
@@ -82,7 +71,6 @@ bool GIC::E04(std::string& str) {
 		return false;
 	}
 }
-
 bool GIC::E05(std::string& str) {
 	if (debug) {
 		std::cout << "Entrado al estado   E05 con la cadena \"" << str << "\"" << std::endl;
@@ -97,9 +85,6 @@ bool GIC::E05(std::string& str) {
 		return false;
 	}
 }
-
-
-
 bool GIC::E06(std::string &str){
 	if (debug) {
 		std::cout << "Entrado al estado   E06 con la cadena \"" << str << "\"" << std::endl;
@@ -180,7 +165,6 @@ bool GIC::E09(std::string &str){
 		return false;
 	}
 }
-
 bool GIC::E10(std::string& str) {
 	if (debug) {
 		std::cout << "Entrado al estado   E10 con la cadena \"" << str << "\"" << std::endl;
@@ -201,7 +185,6 @@ bool GIC::E10(std::string& str) {
 		return false;
 	}
 }
-
 bool GIC::E11(std::string& str) {
 	if (debug) {
 		std::cout << "Entrado al estado   E11 con la cadena \"" << str << "\"" << std::endl;
@@ -216,7 +199,6 @@ bool GIC::E11(std::string& str) {
 		return false;
 	}
 }
-
 bool GIC::E12(std::string& str) {
 	if (debug) {
 		std::cout << "Entrado al estado   E12 con la cadena \"" << str << "\"" << std::endl;
@@ -232,7 +214,12 @@ bool GIC::E12(std::string& str) {
 	}
 }
 
-
+bool GIC::compare(std::string str) {
+	if (debug) {
+		std::cout << "Iniciando" << std::endl;
+	}
+	return E00(str);
+}
 
 bool GIC::subString(std::string str, std::string a, int index) {
 	if (str.length() < index + a.length()) {
